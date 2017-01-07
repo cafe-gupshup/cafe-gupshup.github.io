@@ -1,13 +1,149 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Café Gupshup Documentation</title>
+    <title>Café Gupshup</title>
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <meta charset="utf-8" />
 </head>
 <body>
-    <h2>Hello world!</h2>
+    <header>
+        <h1>Documentation for Café Gupshup's Bot</h1>
+    </header>
 
-    <p>This page contains documentation for the ##Gupshup IRC channel on
-        Snoonet.</p>
+    <section id="introduction">
+        <h2>Introduction</h2>
+
+        <p>
+            This page documents features of ##gupshup's bot, ChaiWala 
+            ("tea-server"). ChaiWala runs a modified version of the IRC bot
+            CloudBot. Amongst the modifications made to ChaiWala include a
+            virtual currency system, described in more detail below.
+        </p>
+
+        <p>
+            Note that the full list of commands for ChaiWala is not given below;
+            for that, you should consult the
+            <a href="https://snoonet.org/gonzobot">Snoonet page on gonzobot</a>,
+            which is a version of CloudBot customised for Snoonet. Some commands
+            listed on that page may not be present in ChaiWala because ChaiWala
+            runs a slightly older version of CloudBot. If you would like to see
+            ChaiWala be updated with a particular command, contact <em>hasc</em>
+            on ##gupshup.
+        </p>
+
+        <p>
+            In this documentation, command parameters are surrounded by angle
+            brackets ("&lt;" and "&gt;") to indicate that they are compulsory,
+            and square brackets if optional.
+        </p>
+    </section>
+
+    <section>
+        <h2>The Virtual Currency System</h2>
+
+        <p>
+            A rudimentary virtual currency system has been implemented into
+            ChaiWala. It allows users to exchange a currency known as
+            <em>coins</em>. At the moment, the only thing you may do with coins
+            is purchase the removal of your own grabs (for a cost of 10 coins
+            per grab, as documented below), but soon you will be able to trade
+            ducks and other items for coins. Coins can be obtained by
+            participating in the channel. Each time you post a message to the
+            channel, there is a 1 in 1000 chance that the bot dishes out a coin
+            to you.
+        </p>
+
+        <h3>List of Commands</h3>
+
+        <table border="1">
+            <tr>
+                <th>Syntax</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>.openaccount</code></td>
+                <td>Opens an account in your name, after which you will be
+                    able to hold coins and exchange them with other users.</td>
+            </tr>
+            <tr>
+                <td><code>.balance [nick] </code></td>
+                <td>Shows <code>[nick]</code>'s current balance, in coins. If 
+                    <code>[nick]</code> is left blank, this will simply display
+                    your own balance.</td>
+            </tr>
+            <tr>
+                <td><code>.coinstotal, .totalcoins</code></td>
+                <td>Shows the total number of coins currently in circulation.
+                    This is the sum of all coins possessed by users.</td>
+            </tr>
+            <tr>
+                <td><code>.give &lt;nick&gt; &lt;quantity&gt;</td>
+                <td>Transfers <code>&lt;quantity&gt;</code> coins from your
+                    balance into <code>&lt;nick&gt;</code>'s balance. This will
+                    not work if <code>&lt;nick&gt;</code> does not have an
+                    account (the command will display a message indicating
+                    this). Channel operators may specify a negative value for
+                    <code>&lt;quantity&gt;</code> to take coins from a
+                    particular nick.</td>
+            </tr>
+            <tr>
+                <td><code>.richest</code></td>
+                <td>Shows the richest nicks in the channel: a list of all nicks
+                    with accounts and their corresponding balances sorted in
+                    descending order.</td>
+        </table>
+    </section>
+
+    <section>
+        <h2>Markov Chain Generator</h2>
+
+        <p>
+            You can have the bot feed all previous messages in the channel from a
+            particular nick into a Markov chain generator and then output a
+            random message from it. To make use of this feature, simply type
+            <code>&lt;nick&gt;_bot</code> (e.g. <code>hasc_bot</code>) and the
+            bot will respond with a randomly generated message. You may also type
+            <code>?_bot</code> to pick a random nick, or <code>grabs_bot</code>
+            to feed all previous grabs into the Markov chain generator instead.
+        </p>
+    </section>
+
+    <section>
+        <h2>Miscellaneous Commands</h2>
+
+        <p>
+            Use <code>.platts &lt;word&gt;</code> to consult Platts' dictionary
+            for a particular Urdu word. You can type the word in Roman Urdu but
+            it tends to work best if you write it in the Urdu script. By
+            default, the first definition will be returned but you can view
+            subsequent definitions by adding a space followed by a number,
+            as so: <code>.platts &lt;word&gt; 2</code>.
+        </p>
+
+        <p>
+            Use <code>.cricket</code> to see the latest cricket scores. The code
+            for this command was written a long time and might take a long time
+            to return its output. Sometimes it might not work altogether, so
+            tread carefully.
+        </p>
+
+        <p>
+            Some other fun<sup>1</sup> commands include, but
+            are not limited to, <code>.kek</code>, <code>.nep</code>, and
+            <code>.konishiki</code>.
+            <br />
+            <sup>1</sup> Definitions of "fun" may vary.
+        </p>
+    </section>
+
+    <section>
+        <h2>Other</h2>
+
+        <p>
+            This page is currently incomplete; it will be updated
+            periodically. It will also be updated as new features are added to
+            the bot.
+        </p>
+    </section>
 </body>
 </html>
